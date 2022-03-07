@@ -12,6 +12,11 @@ public class PreguntaService implements IPreguntaService {
 
     private final PreguntaRepository preguntaRepository;
 
+    /**
+     *
+     * @param preguntaDto pregunta a crear
+     * @return saved indicando si la creacion de la pregunta fue exitosa o no
+     */
     @Override
     public boolean crearPregunta(PreguntaDto preguntaDto) {
         boolean saved = false;
