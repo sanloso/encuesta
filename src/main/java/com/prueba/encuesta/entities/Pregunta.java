@@ -8,6 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
+@Table
 @NoArgsConstructor
 @AllArgsConstructor
 public class Pregunta {
@@ -23,8 +24,8 @@ public class Pregunta {
     @Column (name = "pregunta")
     private String pregunta;
 
-    @Column (name = "idEncuesta")
-    private long idEncuesta;
+    @Column (name = "nombreEncuesta")
+    private String nombreEncuesta;
 
     @Column (name = "respuestaCorrecta")
     private long respuestaCorrecta;
@@ -35,7 +36,7 @@ public class Pregunta {
                 "id=" + id +
                 ", tipoPregunta=" + tipoPregunta +
                 ", pregunta='" + pregunta + '\'' +
-                ", idEncuesta=" + idEncuesta +
+                ", idEncuesta=" + nombreEncuesta +
                 ", respuestaCorrecta=" + respuestaCorrecta +
                 '}';
     }
