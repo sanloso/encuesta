@@ -47,12 +47,12 @@ public class EncuestaController {
     @GetMapping("/listar-encuesta")
     public List<Pregunta> listarEncuesta(@RequestParam String nombreEncuesta) throws NoPreguntaException {
         try{
-            Optional<List<Pregunta>> entity = encuestaService.ListarEncuesta(nombreEncuesta);
+            Optional<List<Pregunta>> optionalPreguntas = encuestaService.ListarEncuesta(nombreEncuesta);
             List<Pregunta> preguntaList = new ArrayList<Pregunta>();
-            entity.get().forEach(t -> preguntaList.add(t));
+            optionalPreguntas.get().forEach(t -> preguntaList.add(t));
             return preguntaList;
         } catch (Exception e) {
-            throw e;
+            throw new NoPreguntaException();
         }
     }
 
