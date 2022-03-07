@@ -21,6 +21,12 @@ public class EncuestaService implements IEncuestaService {
     private final EncuestaRepository encuestaRepository;
     private final PreguntaRepository preguntaRepository;
 
+    /**
+     *
+     * @param nombreEncuesta nombre de la encuesta que se va a buscar
+     * @return optionalPreguntas lista de las preguntas relacionadas al nombre de la encuesta
+     * @throws NoPreguntaException en caso de no encontrar preguntas relacionadas a la encuesta
+     */
     @Override
     public Optional<List<Pregunta>> ListarEncuesta(String nombreEncuesta) throws NoPreguntaException {
         Optional<List<Pregunta>> optionalPreguntas = preguntaRepository.findPreguntaBynombreEncuesta(nombreEncuesta);
@@ -32,6 +38,11 @@ public class EncuestaService implements IEncuestaService {
 
     }
 
+    /**
+     *
+     * @param nombre de la encuesta que se va a crear
+     * @return saved indicando si la creacion fue exitosa o no
+     */
     @Override
     public boolean crearEncuesta(String nombre) {
         boolean saved = false;
